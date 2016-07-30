@@ -12,12 +12,12 @@ curl --include --request POST http://localhost:3000/matches \
   }'
 
   curl --include --request POST http://localhost:3000/matches \
-    --header "Authorization: Token token=DHqF30sfTKKrPYHWmH+enQpb9GI00Pe8fKL5MFKX8dU=--A6sScVXdhrTX4Eh+JxWede3OfzeXouSfXCcud6/vIMQ=" \
+    --header "Authorization: Token token=TKCkbdBKxM3sOBpvK7ZAJ8pY7jEEuEyRHPeKe7xpGEs=--GVwMs/25D8ZCPr0u0ymannE7l4rFfcXfJjYr3eE9AAs=" \
     --header "Content-Type: application/json" \
     --data '{
       "match": {
         "time": "5pm",
-        "opponent": "Mike"
+        "opponent": ""
       }
     }'
 
@@ -32,7 +32,7 @@ curl --include --request POST http://localhost:3000/matches \
   --data '{
     "match": {
       "time": "5pm",
-      "opponent": "Kristen Pearse"
+      "opponent": ""
     }
   }'
 
@@ -57,6 +57,15 @@ curl --include --request PATCH http://localhost:3000/matches-update/579bb422c335
   "match": {
     "time": "10pm",
     "opponent": "This is the patch match by opponent user"
+  }
+}'
+
+curl --include --request PATCH http://localhost:3000/matches-update/579d2a6a21e67b0a94284e6f \
+--header "Content-Type: application/json" \
+--data '{
+  "match": {
+    "time": "10pm",
+    "opponent": "Second time should not patch"
   }
 }'
 

@@ -56,7 +56,8 @@ const updateOpponentMatch = (req, res, next) => {
 
   Match.findOne(search)
     .then(match => {
-      if (!match) {
+      if (!match || match.opponent !== "") {
+      // if (!match) {
         return next();
       }
 
@@ -64,6 +65,7 @@ const updateOpponentMatch = (req, res, next) => {
       return match.update(req.body.match)
         .then(() => res.sendStatus(200));
     })
+
     .catch(err => next(err));
 };
 

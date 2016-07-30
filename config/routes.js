@@ -13,6 +13,7 @@ module.exports = require('lib/wiring/routes')
 
 //
 .get('/owner_matches/:owner', 'matches#showUserMatches')
+.patch('/matches-update/:id', 'matches#updateOpponentMatch')
 // users of the app have special requirements
 .post('/sign-up', 'users#signup')
 .post('/sign-in', 'users#signin')

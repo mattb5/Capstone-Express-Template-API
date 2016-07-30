@@ -50,6 +50,23 @@ const update = (req, res, next) => {
     .catch(err => next(err));
 };
 
+const updateOpponentMatch = (req, res, next) => {
+  // let search = { _id: req.params.id, _owner: req.currentUser._id };
+  let search = { _id: req.params.id };
+
+  Match.findOne(search)
+    .then(match => {
+      if (!match) {
+        return next();
+      }
+
+      delete req.body._owner;  // disallow owner reassignment.
+      return match.update(req.body.match)
+        .then(() => res.sendStatus(200));
+    })
+    .catch(err => next(err));
+};
+
 const destroy = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
   Match.findOne(search)
@@ -71,6 +88,7 @@ module.exports = controller({
   update,
   destroy,
   showUserMatches,
+  updateOpponentMatch,
 }, { before: [
-  { method: authenticate, except: ['index', 'show'] },
+  { method: authenticate, except: ['index', 'show', 'updateOpponentMatch'] },
 ], });

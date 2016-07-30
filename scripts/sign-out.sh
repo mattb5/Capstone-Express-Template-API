@@ -5,5 +5,5 @@ curl --include --request DELETE http://localhost:3000/sign-out/$ID \
 
 /////////////////////////////
 
-curl --include --request DELETE http://localhost:3000/sign-out/579b9e49fca688b6801f57d6 \
-  --header "Authorization: Token token=DHqF30sfTKKrPYHWmH+enQpb9GI00Pe8fKL5MFKX8dU=--A6sScVXdhrTX4Eh+JxWede3OfzeXouSfXCcud6/vIMQ="
+curl --include --request DELETE http://localhost:3000/sign-out/579ce0c5666571748d67cfc8 \
+  --header "Authorization: Token token=trp2lRxxyTldIfJUAH7EvqTx/ac6F6jOlFLkrfbF/is=--y2I5PlP3VFd/HxsDYCCVg4qhSZgWT8xKcZzrW9v6PlI="

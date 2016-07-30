@@ -42,5 +42,23 @@ curl --include --request POST http://localhost:3000/matches \
 --header "Content-Type: application/json"
 
 
-curl --include --request GET http://localhost:3000/owner_matches/579b9e49fca688b6801f57d6 \
---header "Authorization: Token token=DHqF30sfTKKrPYHWmH+enQpb9GI00Pe8fKL5MFKX8dU=--A6sScVXdhrTX4Eh+JxWede3OfzeXouSfXCcud6/vIMQ="
+curl --include --request GET http://localhost:3000/owner_matches/579ce0c5666571748d67cfc8 \
+--header "Authorization: Token token=trp2lRxxyTldIfJUAH7EvqTx/ac6F6jOlFLkrfbF/is=--y2I5PlP3VFd/HxsDYCCVg4qhSZgWT8xKcZzrW9v6PlI="
+
+
+///////////////////////////////////////////////////
+
+patching a match that is not not user owned
+
+curl --include --request PATCH http://localhost:3000/matches-update/579bb422c335f7d184e98ef6 \
+--header "Authorization: Token token=b5KFad973mbJ/+IlJFS9lnDN72ok2EZ/HhiPnwIVatE=--MIEFoSz4VC5oZ4BiSmtXNi+2AIZVVCoFjy+a7kbT3k0=" \
+--header "Content-Type: application/json" \
+--data '{
+  "match": {
+    "time": "10pm",
+    "opponent": "This is the patch match by opponent user"
+  }
+}'
+
+
+b5KFad973mbJ/+IlJFS9lnDN72ok2EZ/HhiPnwIVatE=--MIEFoSz4VC5oZ4BiSmtXNi+2AIZVVCoFjy+a7kbT3k0=

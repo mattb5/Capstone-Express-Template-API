@@ -16,6 +16,10 @@ const matchSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
+  opponentID: {
+    type: String
+    // required: false,
+  },
 }, {
   timestamps: true,
   // toJSON: { virtuals: true },

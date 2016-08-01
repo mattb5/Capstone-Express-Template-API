@@ -26,6 +26,14 @@ const showUserMatches = (req, res, next) => {
    .catch(err => next(err));
 };
 
+const showOpponentUserMatches = (req, res, next) => {
+ Match.find({
+   opponentID: req.params.opponentID,
+ })
+   .then(matches => res.json({ matches }))
+   .catch(err => next(err));
+};
+
 const create = (req, res, next) => {
   let match = Object.assign(req.body.match, {
     _owner: req.currentUser._id,
@@ -69,6 +77,22 @@ const updateOpponentMatch = (req, res, next) => {
     .catch(err => next(err));
 };
 
+// const opponentUpdateCancelsMatch = (req, res, next) => {
+//   let search = { _id: req.params.id, _owner: req.currentUser._id };
+//   Match.findOne(search)
+//     .then(match => {
+//       if (!match) {
+//         return next();
+//       }
+//
+//       delete req.body._owner;  // disallow owner reassignment.
+//       return match.update(req.body.match)
+//         .then(() => res.sendStatus(200));
+//     })
+//     .catch(err => next(err));
+// };
+
+
 const destroy = (req, res, next) => {
   let search = { _id: req.params.id, _owner: req.currentUser._id };
   Match.findOne(search)
@@ -90,7 +114,8 @@ module.exports = controller({
   update,
   destroy,
   showUserMatches,
+  showOpponentUserMatches,
   updateOpponentMatch,
 }, { before: [
-  { method: authenticate, except: ['index', 'show', 'updateOpponentMatch'] },
+  { method: authenticate, except: ['index', 'show', ] },
 ], });

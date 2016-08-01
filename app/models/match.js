@@ -9,7 +9,7 @@ const matchSchema = new mongoose.Schema({
   },
   opponent: {
     type: String,
-    required: false,
+    // required: true,
   },
   _owner: {
     type: mongoose.Schema.Types.ObjectId,
@@ -19,6 +19,10 @@ const matchSchema = new mongoose.Schema({
   opponentID: {
     type: String
     // required: false,
+  },
+  hostUser: {
+    type: String,
+    required: true,
   },
 }, {
   timestamps: true,

@@ -5,7 +5,7 @@ const models = require('app/models');
 const Match = models.match;
 
 const authenticate = require('./concerns/authenticate');
-
+//this one shows all matches
 const index = (req, res, next) => {
   Match.find()
     .then(matches => res.json({ matches }))

@@ -19,15 +19,15 @@
 
 
 ////////////////
-  curl --include --request PATCH http://localhost:3000/matches/579bb422c335f7d184e98ef6 \
-  --header "Authorization: Token token=o3HO0lW1RIg7thUGzyv7wj2NuLC1CcWf2ot6xZxQq6c=--EL+EooSw89ESqeXeoz7RYs5F5CbKLGb35ADqhPMhfFc=" \
-  --header "Content-Type: application/json" \
-  --data '{
-    "match": {
-      "time": "5pm",
-      "opponent": ""
-    }
-  }'
+curl --include --request PATCH http://localhost:3000/matches/579febc1b9c8823fadeb4e40 \
+--header "Authorization: Token token=jpQXyvipqCoGbWpTXkwNdnr4UqqF1rPL0BZksJt+NUw=--hASsK0hvQ1FwhixuF471h/tglFrlQ2PePqazOE2CPtc=" \
+--header "Content-Type: application/json" \
+--data '{
+  "match": {
+    "time": "5pm",
+    "opponent": ""
+  }
+}'
 
 ////////////////
   curl --include --request DELETE http://localhost:3000/matches/579bad8dc335f7d184e98ef3 \
@@ -72,9 +72,6 @@ curl --include --request GET http://localhost:3000/opponent_matches/579f78d8d434
 
 ////////////////////////////////////////////
 
-curl --include --request PATCH http://localhost:3000//update-remove-opponent/:id \
-
-
 
 curl --include --request PATCH http://localhost:3000/update-remove-opponent/579f6f8ed4349e08a76d28a3 \
 --header "Authorization: Token token=aNuKLM8HT3nNLdchbQUbJWCnUFN/FCO6mxUcdPWcyvI=--86Ida0+0AS61riUlaVd1uoNcn9eljsITvirk8414ZZM=" \
@@ -85,3 +82,8 @@ curl --include --request PATCH http://localhost:3000/update-remove-opponent/579f
     "opponentID": ""
   }
 }'
+///////////////////////////////////////////////////
+
+curl --include --request DELETE http://localhost:3000/matches/579feefeb9c8823fadeb4e41 \
+--header "Authorization: Token token=Fr0kqmNYh8FjKkngQY7Acd9vjnt+Y6NHuyyTo6ajKYQ=--lKb1f3yb70XO6DVD/R1WHtqrbirVapH8M8SBiu0T03E=" \
+--header "Content-Type: application/json"
